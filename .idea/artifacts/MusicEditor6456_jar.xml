@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MusicEditor6456:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MusicEditor6456_jar</output-path>
+    <root id="archive" name="MusicEditor6456.jar">
+      <element id="module-output" name="MusicEditor6456" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/images" />
+    </root>
+  </artifact>
+</component>

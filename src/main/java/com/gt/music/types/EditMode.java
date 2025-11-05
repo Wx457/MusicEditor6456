@@ -1,6 +1,6 @@
 package com.gt.music.types;
 
 public enum EditMode {
-    DRAW, SELECT
+    DRAW, SELECT, PEN
 }
 

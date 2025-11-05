@@ -37,20 +37,27 @@ public class MusicEditorController {
     }
 
     private void addListeners() {
+        //Default mode: DRAW
+        model.setCurrentMode(EditMode.DRAW);
+        view.getStatusBar().setText("Status: Draw mode (default).");
+
         //Add listener to simple buttons
         view.getSelectButton().addActionListener(e -> {
-            // Switch mode: SELECT <--> DRAW
-            if (model.getCurrentMode() == EditMode.DRAW) {
-                model.setCurrentMode(EditMode.SELECT);
-                view.getStatusBar().setText("Status: Select mode activated.");
-            } else {
+            model.setCurrentMode(EditMode.SELECT);
+            view.getStatusBar().setText("Status: Select mode.");
+        });
+        view.getPenButton().addActionListener(e ->{
+            if (model.getCurrentMode() == EditMode.PEN) {
+                // Close PEN → DRAW
+                // view.clearInkStroke(); // optional
                 model.setCurrentMode(EditMode.DRAW);
-                view.getStatusBar().setText("Status: Draw mode activated.");
+                view.getStatusBar().setText("Status: Draw mode.");
+            } else {
+                // activate PEN
+                model.setCurrentMode(EditMode.PEN);
+                view.getStatusBar().setText("Status: Pen mode.");
             }
         });
-        view.getPenButton().addActionListener(e ->
-                view.getStatusBar().setText("Status: Pen button clicked.")
-        );
 
         // +++ Play/stop music +++
         view.getStopButton().setEnabled(false); // 初始 Stop 置灰
